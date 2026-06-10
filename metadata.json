@@ -1,0 +1,6 @@
+{
+  "name": "PLIDA B2 Italian Study Center",
+  "description": "Una piattaforma interattiva per studiare e prepararsi all'esame di lingua italiana PLIDA livello B2, ricca di esercizi di ascolto, lettura, scomposizione grammaticale e redazione con valutazione AI.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
