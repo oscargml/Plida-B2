@@ -14,6 +14,7 @@ import VocabularyBankView from './components/VocabularyBankView';
 
 import { AIPeedback, AISpeakingFeedback, VocabularyWord } from './types';
 import { Award, BookOpen, Headphones, PenTool, Mic, Home, Sparkles, Trophy, AlignLeft, GraduationCap, BookMarked } from 'lucide-react';
+import { initAnalytics, trackScreenView } from './utils/analytics';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'home' | 'ascoltare' | 'leggere' | 'scrivere' | 'parlare' | 'grammatica' | 'vocabolario'>('home');
@@ -33,6 +34,16 @@ export default function App() {
 
   // Vocabulary bank state
   const [savedWords, setSavedWords] = useState<VocabularyWord[]>([]);
+
+  // Initialize analytics on startup
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  // Automatically track screen/page views when activeTab changes
+  useEffect(() => {
+    trackScreenView(activeTab);
+  }, [activeTab]);
 
   // Load user data on startup from LocalStorage
   useEffect(() => {

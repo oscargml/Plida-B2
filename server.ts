@@ -190,6 +190,13 @@ Fornisci la tua risposta *esclusivamente* in formato JSON valido, senza includer
   }
 });
 
+// Support for Google Search Console HTML File Verification method natively
+app.get('/google:verificationId.html', (req, res) => {
+  const { verificationId } = req.params;
+  res.type('html');
+  res.send(`google-site-verification: google${verificationId}.html`);
+});
+
 // Vite middleware flow
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
